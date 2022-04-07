@@ -1,0 +1,7 @@
+.drum{
+    background: #fe4d00;
+        background: linear-gradient(to right, #ffbf62, #ff7000);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+}
