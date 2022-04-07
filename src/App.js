@@ -125,15 +125,23 @@ function App() {
     fontSize:'5em',
   };
 
+  const style={
+    fontFamily:'ZCOOL KuaiLe'
+  }
 
   return (
     <div className="container">
       <div className="row justify-content-center">
         <h1 style={drumpStyle} className="drum">Drum Machine</h1>
       </div>
-     <div className="row p-2 m-5 vh-90 justify-content-center align-items-center">
+     <div className="row p-2 m-4 justify-content-center align-items-center">
        <div className="col-md-12 text-center"  style={{boxShadow:"1px px 15px 0px black", marginTop:"10px"}}>
        <Drumpad kitPad={kits}/>
+       </div>
+     </div>
+     <div className="row justify-content-center align-items-center">
+       <div className="col-md-12 text-center" style={style}>
+       Created by Lucas Gomez | © 2021 All rights deserved
        </div>
      </div>
     </div>
