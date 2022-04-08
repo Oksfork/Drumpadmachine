@@ -1,4 +1,3 @@
-import { buildQueries } from "@testing-library/react";
 import Drumpad from "./Components/Drumpad/Drumpad";
 import "./App.css";
 
@@ -120,13 +119,16 @@ const kits=[
 
 function App() {
 
+
   const drumpStyle = {
     fontFamily: 'ZCOOL KuaiLe',
     fontSize:'5em',
   };
 
   const style={
-    fontFamily:'ZCOOL KuaiLe'
+    fontFamily:'ZCOOL KuaiLe',
+    color: 'black',
+    fontSize:'1.25em'
   }
 
   return (
