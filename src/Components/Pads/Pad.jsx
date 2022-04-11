@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import "./Pad.scss";
 
 function Pad({clip, power}){
 
@@ -34,7 +35,7 @@ function Pad({clip, power}){
     }
 
     return(
-        <div className={` btn btn-secondary p-4 m-5 ${active && 'btn-warning'}`} style={{border:"2px solid orange"}} onClick={playSound}>
+        <div className={` btn btn-secondary p-4 m-5 pad ${active && 'btn-warning'}`} style={{border:"2px solid orange"}} onClick={playSound}>
             <audio src={clip.url} id={clip.keyTrigger}></audio>
             {clip.keyTrigger}
         </div>

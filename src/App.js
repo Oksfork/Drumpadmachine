@@ -143,7 +143,7 @@ function App() {
      </div>
      <div className="row justify-content-center align-items-center">
        <div className="col-md-12 text-center" style={style}>
-       Created by Lucas Gomez | © 2021 All rights deserved
+       Created by Lucas Gomez | © 2022 All rights deserved
        </div>
      </div>
     </div>

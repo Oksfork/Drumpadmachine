@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Pad from "../Pads/Pad";
+import "./Drumpad.scss";
 
 
 function Drumpad({kitPad}){
@@ -33,7 +34,7 @@ function Drumpad({kitPad}){
       boxShadow: "1px 1px 15px 1px orange"
   }
     return(
-
+      
     <div className="container text-center" style={containerStyle}>
       <div className="row align-items-center">
        <div className="col-md-7">
