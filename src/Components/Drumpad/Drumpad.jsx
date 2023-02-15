@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import Pad from "../Pads/Pad";
 import "./Drumpad.scss";
@@ -5,52 +7,60 @@ import "./Drumpad.scss";
 
 function Drumpad({kitPad}){
   
-  const [currentKit, setCurrentKit] = useState(kitPad[0]);
-  const [currentId, setCurrentId] = useState('Heather Kit');
-
 
   const [active, setActive] =useState("");
-  const [powerActive, setPowerActive] =useState(true);
+  const [isOn, setIsOn] = useState(true);
 
   const switchPad = () =>{
-    if(currentId==='Heather Kit'){
-      setCurrentKit(kitPad[1]);
-      setCurrentId('Piano');
-    }
-    else{
-      setCurrentKit(kitPad[0]);
-      setCurrentId('Heather Kit')
-    }
-    setActive(!active);
-  }
-
-  const powerTurn = () =>{
-    setPowerActive(!powerActive);
+      setActive(!active);
   }
 
   const containerStyle={
-      border: '2px solid orange',
       backgroundColor: "#F2F2F2",
-      boxShadow: "1px 1px 15px 1px orange"
+      boxShadow: "1px 1px 15px 1px orange",
+      borderRadius: "15px"
   }
     return(
-      
-    <div className="container text-center" style={containerStyle}>
-      <div className="row align-items-center">
-       <div className="col-md-7">
-        {
-          currentKit.map(clip=>(
-            <Pad clip={clip} power={powerActive}></Pad>
-          ))
-          }
+    <div className="container text-center containerStyle">
+      <div className="row align-items-center" >
+        <div className="col-md-7 text-center">
+          <div className="row m-5 align-items-center">
+          {
+          active ?
+          kitPad[1].map(clip =>(
+            //console.log(clip)
+            <div className="col-4 col-sm-2 col-md-4 text-center">
+              <Pad  clip={clip} power={isOn}></Pad>
+            </div>))
+            :
+            kitPad[0].map(clip =>(
+              //console.log(clip)
+            <div className="col-4 col-sm-2 col-md-4 text-center">
+              <Pad clip={clip} power={isOn}></Pad>
+            </div>
+            ))
+        }
+          </div>
         </div>
         <div className="col-md-5">
-          <div className="row justify-content-center">
-            <div className={`col-md-4 btn p-4 m-5  ${powerActive ? 'btn-danger' : 'btn-dark'}`} style={{boxShadow:"5px 5px 15px 1px gray"}} onClick={powerTurn}>
-              Power
+          <div className="bottoner-displaying">
+            <div className={` ${isOn == true  ? 'btn-power' : 'btn-poweroff'}`} onClick={() => setIsOn(!isOn)} >
+            <FontAwesomeIcon icon={faPowerOff} />
             </div>
-            <div className={`col-md-4 btn p-4 m-5 ${active ? 'btn-primary' : 'btn-success'}`} style={{boxShadow:"5px 5px 15px 1px gray"}} onClick={switchPad}>
-              {currentId}
+            <div className="bank-container">
+              {
+                active ? 
+                  <div class="bank-display">
+                    Bank 2
+                  </div>
+                :
+                <div className="bank-display2">
+                    Bank 1
+                </div>
+              }
+            </div>
+            <div className={`${active ? 'switch-display-2' : 'switch-display-1'}`} id="botones" onClick={switchPad}>
+              Switch Bank
             </div>
           </div>
         </div>

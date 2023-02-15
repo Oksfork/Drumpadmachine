@@ -1,0 +1,156 @@
+.containerStyle{
+    background-color: #F2F2F2;
+    box-shadow: inset 0px 0 rgb(130, 130, 130), 0px 10px 0px rgb(62, 62, 62);
+    border-radius: 15px;
+    position: relative;
+
+    &:after {
+        content:"";
+        height:100%;
+        width: calc(100% + 10px);
+        padding:15px;
+        position: absolute;
+        bottom:-15px;
+        left:-4px;
+        z-index:-1;
+        background-color:#101010;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 15px;
+    }
+}
+
+.bottoner-displaying{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    >*{
+        margin: 20px 0;
+    }
+}
+
+.btn-power{
+    background: #ff0000;
+    box-shadow: 0px 0px 15px 0px #f63e00;
+    padding: 20px;
+    width: 20%;
+    border-radius: 5px;
+    color: white;
+}
+
+.btn-poweroff{
+    background: #323232;
+    color: black;
+    padding: 20px;
+    width: 20%;
+    border-radius: 5px;
+}
+
+
+.bank-container{
+    width: 30%;
+}
+.bank-display{
+    background: #5b5b5b;
+    color: #002157;
+    font-size: 1.2em;
+    text-shadow: 1px 1px 3px #0062ff;
+    box-shadow:inset -3px -1px 4px 1px rgb(15, 14, 14);
+    width: 100%;
+    height: 35px;
+}
+
+.bank-display2{
+    background: #5b5b5b;
+    color: #713b92;
+    font-size: 1.2em;
+    text-shadow: 1px 1px 3px #ff00ff ;
+    box-shadow:inset -3px -1px 4px 1px rgb(15, 14, 14);
+    width: 100%;
+    height: 35px;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.switch-display-1{
+    background: #0040a7;
+    box-shadow: 0px 0px 15px 0px #0062ff;
+    width: 30%;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.switch-display-2{
+    background: #7300ba;
+    box-shadow: 0px 0px 15px 0px #9d00ff;
+    width: 30%;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.bottoner-displaying{
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 600px) {
+    
+    .bottoner-displaying{
+        flex-direction: row;
+        margin: 0 auto 20px auto;
+    }
+
+    .btn-power{
+        width: 30% !important;
+        padding: 10px;
+        font-size: 13px;
+        height: 100%;
+        margin: 0 10px;
+    }
+
+    .btn-poweroff{
+        width: 30% !important;
+        padding: 10px;
+        font-size: 13px;
+        height: 100%;
+        margin: 0 10px;
+    }
+    .switch-display-1{
+        width: 30% !important;
+        margin: 0 10px;
+        height: 100%;
+        padding: 10px;
+        font-size:13px;
+    }
+    .switch-display-2{
+        width: 30% !important;
+        padding: 10px;
+        margin: 0 10px;
+        font-size:13px;
+        height: 100%;
+    }
+
+    .bank-container{
+        margin: 0 10px;
+        width: 150px;
+        height: 20px;
+    }
+    .bank-display2{
+        width: 100%;
+        margin: 0 auto;
+        
+    }
+    .bank-display{
+        width: 100%;
+        margin: 0 auto;
+    }
+}

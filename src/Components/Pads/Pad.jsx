@@ -4,41 +4,62 @@ import "./Pad.scss";
 
 function Pad({clip, power}){
 
+    console.log(power);
     const [active, setActive] = useState(false);
 
     useEffect(()=>{
-        
-        document.addEventListener("keydown",handleKeyPress);
-        
-        return()=>{
-            document.removeEventListener("keydown",handleKeyPress);
+        if(power == true){
+            document.addEventListener("keydown", handleKeyPress);
         }
-    },[power]);
-    
+        return()=>{
+            if(power == true){
+                document.removeEventListener("keydown", handleKeyPress);
+            }
+        }
+    },[]);
+
     const handleKeyPress = (e) =>{
-        if (e.keyCode === clip.keyCode){
-            playSound();
-            console.log(e.keyCode);
-            console.log(clip.keyTrigger);
-            console.log(clip.keyCode);
-    }   
+        if(power == true){
+            if (e.keyCode === clip.keyCode){
+                playSound();
+                console.log(e.keyCode);
+                console.log(clip.keyTrigger);
+                console.log(clip.keyCode);
+            }
+        }
     }
 
     const playSound = () =>{
-        if(power){
-        const sound = document.getElementById(clip.keyTrigger);
-        sound.currentTime=0;
-        setActive(true);
-        setTimeout(()=>setActive(false),100);
-        sound.play();
+        if(power == true){
+            const sound = document.getElementById(clip.keyTrigger);
+            sound.currentTime=0;
+            setActive(true);
+            setTimeout(()=>setActive(false),200);
+            sound.play();
         }
+
+        return;
     }
 
     return(
-        <div className={` btn btn-secondary p-4 m-5 pad ${active && 'btn-warning'}`} style={{border:"2px solid orange"}} onClick={playSound}>
-            <audio src={clip.url} id={clip.keyTrigger}></audio>
-            {clip.keyTrigger}
-        </div>
+        <>
+        {
+            power ?
+            <div className={`safe-button ${active && 'press-button'}`} onClick={playSound}>
+                            <audio src={clip.url} id={clip.keyTrigger}></audio>
+            <p>
+                {clip.keyTrigger}
+            </p>
+            </div>
+            :
+            <div className={`safe-button ${active && 'press-button'}`}>
+                           <p>
+                {clip.keyTrigger}
+            </p>
+            </div>
+        }
+
+        </>
     );
 }
 

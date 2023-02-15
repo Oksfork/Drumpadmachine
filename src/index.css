@@ -5,9 +5,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('assets/img/drumpad.jpg');
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+@media only screen and (max-width: 600px) {
+  body{
+    background-size: cover;
+    height: 100vh;
+  }
 }
